@@ -1,4 +1,5 @@
-# IONIC-B-sico
+# IONIC-Basico
+# Basic IONIC
 
 PT-BR
 Implementação básica em IONIC para servir de consulta no desenvolvimento de outros projetos.
