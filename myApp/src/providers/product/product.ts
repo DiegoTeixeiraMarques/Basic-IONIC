@@ -57,6 +57,8 @@ export class ProductProvider {
               product.duedate = item.duedate;
               product.active = item.active;
               product.category_id = item.category_id;
+
+              return product;
             }
           })
           .catch((e) => console.error(e));
@@ -68,10 +70,10 @@ export class ProductProvider {
     return this.dbProvider.getDB()
       .then((db: SQLiteObject) => {
         let sql = 'SELECT p.*, c.name as category_name FROM products p inner join categories c on p.category_id = c.id where p.active = ?'
-        let data: any[] = [active ? 0 : 1];
+        let data: any[] = [active ? 1 : 0];
         if (name) {
           sql += ' and p.name like ?';
-          data.push(name);
+          data.push('%' + name + '%');
         }
         return db.executeSql(sql, data)
           .then((data: any) => {

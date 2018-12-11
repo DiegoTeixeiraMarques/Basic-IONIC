@@ -10,7 +10,7 @@ export class DatabaseProvider {
 
   public getDB(){
     return this.sqlite.create({
-      name: 'products.db',
+      name: 'demo',
       location: 'default'
     });
   }
